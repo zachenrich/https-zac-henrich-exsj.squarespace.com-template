@@ -446,7 +446,7 @@ body {
     background-color: #f3f5f5;
 }
 
-h1, h2, h3, h4, h5, h6, .navbar {
+h1, h2, h3, h4, h5, h6, .navbar, .jumbotron h1 small {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 300;
 }
@@ -469,10 +469,6 @@ h5 a,
 h6 a {
     padding-bottom: 0;
     border-bottom: 0;
-}
-
-.jumbotron h1 {
-    font-size: 58px;
 }
 
 .landing .jumbotron  h1 {
@@ -520,7 +516,6 @@ h6 a {
     border-bottom: 1px solid #efefef;
     border-radius: 0;
     box-shadow: none;
-    webkit-box-shadow: none;
 }
 
 .nav-sec .navbar-nav {
@@ -541,6 +536,132 @@ h6 a {
     padding-bottom: 24px;
 }
 
+.jumbotron h1 {
+    font-size: 58px;
+    font-weight: 100;
+    letter-spacing: 0.03em;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.jumbotron h1 small {
+    display: block;
+    margin-top: 5px;
+    font-size: 20px;
+    letter-spacing: 0;
+    font-weight: 300;
+}
+
+.jumbotron p {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.2px;
+}
+
+.jumbotron-toggle .glyphicon {
+    transition: all .3s ease-in-out;
+}
+
+.toolbar-jumbotron {
+    margin-top: 15px;
+    text-align: right;
+    font-size: 20px;
+}
+
+.toolbar-jumbotron a {
+    color: #333;
+    border: 0;
+    padding-bottom: 0;
+}
+
+.toolbar {
+    display: inline-block;
+    vertical-align: top;
+    margin: 17px 0 0 15px;
+}
+
+.toolbar a {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    display: block;
+    border-radius: 50%;
+    text-align: center;
+    border-bottom: 0;
+    padding: 0;
+    background-color: #666;
+    background-repeat: no-repeat;
+}
+
+.toolbar a:hover,
+.toolbar a:focus {
+    background-color: #999;
+}
+
+.toolbar .icon-settings {
+    background-image: url('../images/settings.svg');
+    background-position: 11px center;
+}
+
+.toolbar .icon-code {
+    background-image: url('../images/code.svg');
+    background-position: center center;
+    background-size: 70%;
+}
+
+.toolbar .icon-doc {
+    background-image: url('../images/documentation.svg');
+    background-position: center center;
+}
+
+.jumbotron-collapsed h1 {
+    font-size: 35px;
+}
+
+.jumbotron-collapsed h1 small {
+    font-size: 16px;
+}
+
+.jumbotron-collapsed p {
+    display: none;
+}
+
+.jumbotron-collapsed .overview-header {
+    position: absolute;
+    margin: 0;
+    padding-bottom: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0;
+}
+
+.jumbotron-collapsed .toolbar {
+    margin-top: 5px;
+}
+
+.jumbotron-collapsed .toolbar a {
+    width: 30px;
+    height: 30px;
+    background-size: 50%;
+}
+
+.jumbotron-collapsed .toolbar .icon-settings {
+    background-position: 9px center;
+}
+
+.jumbotron-collapsed .toolbar .icon-code {
+    background-size: 60%;
+}
+
+.jumbotron-collapsed .toolbar a img {
+    width: 15px;
+}
+
+.jumbotron-collapsed .jumbotron-toggle .glyphicon {
+    transform: rotate(180deg);
+}
+
 .section {
     padding-top: 24px;
     padding-bottom: 30px;
@@ -552,20 +673,6 @@ h6 a {
 .container .jumbotron {
     padding-top: 24px;
     background-color: #fff;
-}
-
-.jumbotron h1 {
-    font-weight: 100;
-    padding: 18px 0 35px;
-    border-bottom: 1px solid #ebf0f0;
-    letter-spacing: 0.03em;
-    margin-bottom: 40px;
-}
-
-.jumbotron p {
-    font-size: 18px;
-    line-height: 22px;
-    letter-spacing: 0.2px;
 }
 
 .landing.section {
@@ -597,9 +704,8 @@ h6 a {
 
 .section {
     background-color: #fff;
-    color: #424d55;
+    color: #333;
     border: 1px solid #e9e9e9;
-    webkit-box-shadow: 0 1px 50px rgba(0,0,0,0.04);
     box-shadow: 0 1px 50px rgba(0,0,0,0.04);
     min-height: 280px;
 }
@@ -643,20 +749,10 @@ h6 a {
     border-top: 1px solid #efefef;
 }
 
-.toolbar {
-    font-size: 20px;
-    padding-top: 15px;
-    text-align: right;
-}
-
-.toolbar a {
-    padding-bottom: 0;
-    color: #424d55;
-    border-bottom: 0;
-}
-
-.toolbar a:hover {
-    color: #428bca;
+.overview-header {
+    padding: 0 0 35px;
+    border-bottom: 1px solid #ebf0f0;
+    margin: 40px 0 40px;
 }
 
 .section-intro {

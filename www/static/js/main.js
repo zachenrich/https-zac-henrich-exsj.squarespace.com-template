@@ -1,23 +1,39 @@
 $(function () {
-    $('.toolbar li').tooltip();
-    $('.jumbotron-toggle').on('click', jumbotronToggle);
+    $('[data-toggle="tooltip"]').tooltip();
+    // $('.jumbotron-toggle').on('click', jumbotronToggle);
+
+    jumbotronToggle();
 });
 
 function jumbotronToggle () {
-    var shown = $('.jumbotron h1').is(':visible'),
-        $toggleEl = $('.jumbotron-toggle'),
-        heading = $('.overview > h1').html();
-    if (shown) {
-        $toggleEl.addClass('glyphicon-chevron-down').removeClass('glyphicon-chevron-up');
-        $('.overview').fadeOut(500, function () {
-            $('.toolbar')
-                .prepend('<h3 class="pull-left" style="margin-top: 0px; font-weight: 100;">' + heading + '</h3')
-                .hide()
-                .fadeIn(500);
+    var $jumbotron = $('.jumbotron'),
+        $jumbotronOverview = $('.overview'),
+        height = $jumbotronOverview.outerHeight() + 'px';
+  
+    $('.jumbotron-toggle').on('click', function() {
+        if ($('.jumbotron-collapsed').length === 0) {
+                $jumbotronOverview.animate({
+                    opacity: 0,
+                    height: '30px'
+                }, 500, function() {
+                    togglePanelStyle();
+                });
+        } else {
+            $jumbotronOverview.animate({
+                opacity: 0
+            }, 500, function() {
+                $(this).animate({
+                  height: height
+                });
+                togglePanelStyle();
+            });
+        }
+    });
+
+    function togglePanelStyle() {
+        $jumbotronOverview.animate({
+            opacity: 1
         });
-    } else {
-        $toggleEl.addClass('glyphicon-chevron-up').removeClass('glyphicon-chevron-down');
-        $('.toolbar > h3').fadeOut(100);
-        $('.overview').fadeIn('slow');
+        $jumbotron.toggleClass('jumbotron-collapsed');
     }
 }
