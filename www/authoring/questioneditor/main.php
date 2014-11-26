@@ -7,7 +7,7 @@ include_once 'includes/header.php';
 
 <div class="jumbotron section">
     <div class="toolbar-jumbotron">
-        <a href="#" data-toggle="tooltip" data-original-title="Toggle product overview box"><span class="glyphicon glyphicon-chevron-up jumbotron-toggle"></span></a>
+        <a href="#" data-toggle="tooltip" data-original-title="Toggle product overview box" class=" jumbotron-toggle"><span class="glyphicon glyphicon-chevron-up"></span></a>
     </div>
     <div class="overview">
         <div class="overview-header">
