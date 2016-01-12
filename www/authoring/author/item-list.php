@@ -91,6 +91,9 @@ $request = array(
                             'global_template' => 'edit'
                         )
                     )
+                ),
+                'rich_text_editor' => array(
+                    // 'type' => 'wysihtml'
                 )
             )
         )

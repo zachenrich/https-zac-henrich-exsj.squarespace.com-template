@@ -30,6 +30,9 @@ $customMode = (isset($_GET['mode'])) ? $_GET['mode'] : 'production';
 // Asset version
 $assetVersion = '20151228';
 
+// Whether to use the global navigation
+$showNavigation = true;
+
 /*
 |--------------------------------------------------------------------------
 | Environment Details

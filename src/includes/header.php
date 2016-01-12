@@ -34,14 +34,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
 <?php
-    // Show alert if not being used form localhost
-    if (strpos($_SERVER['SERVER_NAME'], '.learnosity.com') === false && $_SERVER['SERVER_NAME'] !== 'localhost') {
-        echo '<div class="container alert alert-warning"><p><b>Warning</b> – ' .
-            'Note: Most demos will only work from <em>localhost</em>. Please ' .
-            'contact support@learnosity.com to get an additional domain added.</p></div>';
-    }
+// Show alert if not being used form localhost
+if (strpos($_SERVER['SERVER_NAME'], '.learnosity.com') === false && $_SERVER['SERVER_NAME'] !== 'localhost') {
+    echo '<div class="container alert alert-warning"><p><b>Warning</b> – ' .
+        'Note: Most demos will only work from <em>localhost</em>. Please ' .
+        'contact support@learnosity.com to get an additional domain added.</p></div>';
+}
 
+if ($showNavigation) {
     include_once 'nav.php';
+}
 ?>
 
 <div class="container container-content">
