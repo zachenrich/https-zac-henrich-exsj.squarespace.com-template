@@ -43,9 +43,13 @@ body {
     width: auto;
 }
 .wrapper {
-    background: url('./static/images/background.svg');
-    height: 752px;
+    background: url('./static/images/background.svg') center center;
     background-size: cover;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
 }
 .container-api {
     position: absolute;
