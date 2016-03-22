@@ -12,7 +12,7 @@ $security = array(
     'timestamp'    => $timestamp
 );
 
-$items = array('Worksheet1', 'Worksheet2');
+$items = array('Worksheet1', 'Worksheet2','Worksheet3','Worksheet4');
 $sessionid = Uuid::generate();
 
 $request = array(
@@ -24,16 +24,41 @@ $request = array(
     'session_id'     => $sessionid,
     'items'          => $items,
     'type'           => 'submit_practice',
-    'config'         => array(
-        'renderSubmitButton'  => true,
-        'questionsApiVersion' => $version_questionsapi
-    )
+    'retrieve_tags'  => true
 );
 
 $Init = new Init('items', $security, $consumer_secret, $request);
 $signedRequest = $Init->generate();
 
 ?>
+
+<style type="text/css">
+.worksheet {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    -webkit-column-rule: 1px solid #ebf0f0; /* Chrome, Safari, Opera */
+    -moz-column-rule: 1px solid #ebf0f0; /* Firefox */
+    column-rule: 1px solid #ebf0f0;
+    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 40px; /* Firefox */
+    column-gap: 40px;
+}
+.worksheet .learnosity-item{
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/*Go to a single column on smaller devices*/
+@media only screen and (max-width: 992px) {  /*992 in this case matches parent page breakpoint*/
+    .worksheet {
+        -webkit-column-count: 1; /* Chrome, Safari, Opera */
+        -moz-column-count: 1; /* Firefox */
+        column-count: 1;
+    }
+}
+</style>
 
 <div class="jumbotron section">
     <div class="toolbar">
@@ -44,22 +69,27 @@ $signedRequest = $Init->generate();
         </ul>
     </div>
     <div class="overview">
-        <h1>Items API – Inline</h1>
-        <p>Display items from the Learnosity Item Bank in no time with the Items API.  The Items API builds on the Questions API's power and makes it quicker to integrate.<p>
+        <h1>Worksheet Demo</h1>
+        <p>This demo shows an example of a math worksheet created using learnosity items.  If you submit the answers you'll get an instant report on your progress.<p>
     </div>
 </div>
 
 <div class="section">
     <br>
+    <div class="worksheet">
     <p>
         <?php foreach ($items as $item) { ?>
         <span class="learnosity-item" data-reference="<?= $item; ?>"></span>
         <?php } ?>
-        <span class="learnosity-submit-button"></span>
+       <!--  <span class="learnosity-submit-button"></span>-->
+  </p>
+    </div>
+
+       <button class="itemssubmit">Submit</button>
 
 
         <br><a href="results.php?session_id=<?php echo $sessionid ?>">Results</a>
-    </p>
+
 </div>
 
 <!-- Container for the items api to load into -->
@@ -68,9 +98,28 @@ $signedRequest = $Init->generate();
     var eventOptions = {
             readyListener: function () {
                 console.log('Learnosity Items API is ready');
+
+                //Setup handlers when loaded
+                setupSubmitHandler();
+
+                //Display tags
+
             }
         },
         itemsApp = LearnosityItems.init(<?php echo $signedRequest; ?>, eventOptions);
+
+    function setupCustomHandlers(){
+        console.log('Setup handlers');
+        $('.itemssubmit').on('click', function(){
+
+            console.log('doSubmit');
+            itemsApp.submit();
+            //Do redirect on succes
+
+            //Handle error
+            // this.();
+        })
+    }
 </script>
 
 <?php

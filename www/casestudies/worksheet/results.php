@@ -60,7 +60,7 @@ $request = array(
             'type'         => 'sessions-list-by-item',
             'limit'        => 15,
             'activity_id'  => 'itemsinlineworksheet',
-            'display_user' => true,
+            'display_user' => false,
             'users'        => array(
                 array(
                     'id'   => 'demo_student',
@@ -81,6 +81,16 @@ $Init = new Init('reports', $security, $consumer_secret, $request);
 $signedRequest = $Init->generate();
 
 ?>
+
+<style type="text/css">
+.flexy{
+    display: flex;
+    flex-wrap: wrap;
+}
+.flexitem{
+
+}
+</style>
 <div class="jumbotron section">
     <div class="toolbar">
         <ul class="list-inline">
@@ -90,19 +100,22 @@ $signedRequest = $Init->generate();
         </ul>
     </div>
     <div class="overview">
-        <h1>Reports API – Report Types</h1>
-        <p>A cross domain embeddable service that allows content providers to easily render rich reports.<p>
+        <h1>Worksheet Results</h1>
+        <p>This demo shows the results of an attempt at the maths worksheet - as well as recent attempts.<p>
     </div>
 </div>
 
 <div class="section">
     <div id="lrn-reports-demos-sessions-content">
-        <span class="learnosity-report" id="report-1"></span>
 
-        <span class="learnosity-report" id="report-2"></span>
-        <span class="learnosity-report" id="report-3"></span>
-        <span class="learnosity-report" id="report-4"></span>
-
+        <div class="flexy">
+            <span class="learnosity-report flexitem" id="report-1"></span>
+            <span class="learnosity-report flexitem" id="report-2"></span>
+        </div>
+        <div class="flexy">
+            <span class="learnosity-report flexitem" id="report-3"></span>
+            <span class="learnosity-report flexitem" id="report-4"></span>
+        </div>
         <span class="learnosity-report" id="report-detail"></span>
 
 
